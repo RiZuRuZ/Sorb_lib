@@ -1,3 +1,4 @@
+#include "Arduino.h"
 void exam_1(){
   int myNumbers[] = {0,2,4,16,17};
   void exam_1setup() {
