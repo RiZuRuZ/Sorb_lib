@@ -53,3 +53,72 @@ void exam_2loop() {
   }
   delay(100);
 }
+
+///////////////////////////////////////
+/*
+void exam_1setup() {
+  
+}
+void exam_1loop() {
+  
+}
+*/
+///////////////////////////////////////
+
+void exam_3setup() {
+  const int trig = 21;
+  const int echo = 22;
+  const int led1 = 0;
+  const int led2 = 5;
+  const int led3 = 18;
+  const int bz = 2;
+  const int distanceThreshold = 5;
+  Serial.begin(115200);
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(bz, OUTPUT);
+
+}
+void exam_3loop() {
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  long duration = pulseIn(echo, HIGH);
+  int distance = duration * 0.034 / 2;
+  Serial.print("Distance: ");
+  Serial.println(distance);
+  if (distance <= distanceThreshold) {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(bz, HIGH);
+    delay(100);
+    digitalWrite(bz, LOW);
+  } else if (distance <= distanceThreshold+5) {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, LOW);
+    digitalWrite(bz, HIGH);
+    delay(300);
+    digitalWrite(bz, LOW);
+  } else if (distance <= distanceThreshold+10) {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, HIGH);
+    digitalWrite(bz, HIGH);
+    delay(500);
+    digitalWrite(bz, LOW);
+  } else {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(bz, LOW);
+  }
+  delay(10);
+}
