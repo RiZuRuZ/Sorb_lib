@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include <Servo.h>
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
 
 // Example 1
 void exam_1setup() {
