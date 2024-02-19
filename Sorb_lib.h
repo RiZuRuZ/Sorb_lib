@@ -1,8 +1,7 @@
-#include "Arduino.h"
-exam_1();
-exam_1setup();
-exam_1loop();
+void exam_1();
+void exam_1setup();
+void exam_1loop();
 ////////////////
-exam_2();
-exam_2setup();
-exam_2loop();
+void exam_2();
+void exam_2setup();
+void exam_2loop();
