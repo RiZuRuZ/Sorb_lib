@@ -1,7 +1,9 @@
-// Sorb_lib.h
 #include "Arduino.h"
 #include <Servo.h>
 #include <LiquidCrystal.h>
+
+Servo servo;  // Declare Servo globally
+bool a = true;  // Declare boolean globally
 
 // Example 1
 void exam_1setup() {
@@ -124,7 +126,6 @@ void exam_3loop() {
 void exam_4setup() {
   const int trig = 21;
   const int echo = 22;
-  Servo servo;
   Serial.begin(9600);
   servo.attach(19);
   pinMode(trig, OUTPUT);
@@ -161,7 +162,6 @@ void exam_5setup() {
   LiquidCrystal lcd_1(0, 4, 5, 18, 16, 17);
   int bt = 35;
   int poten = 34;
-  bool a = true;
   lcd_1.begin(16, 2);
   Serial.begin(115200);
   pinMode(trig, OUTPUT);
