@@ -7,14 +7,14 @@ bool a = true;  // Declare boolean globally
 
 // Example 1
 void exam_1setup() {
-  int ledPins[] = {0, 2, 4, 16, 17};
+  int ledPins[] = {2, 4, 5, 12, 13};
   for (int i = 0; i < 5; i++) {
     pinMode(ledPins[i], OUTPUT);
   }
 }
 
 void exam_1loop() {
-  int ledPins[] = {0, 2, 4, 16, 17};
+  int ledPins[] = {2, 4, 5, 12, 13};
   for (int i = 0; i < 5; i++) {
     digitalWrite(ledPins[i], HIGH);
     delay(100);
@@ -27,8 +27,8 @@ void exam_1loop() {
 
 // Example 2
 void exam_2setup() {
-  const int LDR_PIN = 12;
-  int ledPins[] = {2, 0, 4, 16};
+  const int LDR_PIN = 13;
+  int ledPins[] = {2, 4, 5,12};
   pinMode(LDR_PIN, INPUT);
   Serial.begin(115200);
   for (int i = 0; i < 4; i++) {
@@ -37,13 +37,13 @@ void exam_2setup() {
 }
 
 void exam_2loop() {
-  const int LDR_PIN = 12;
+  const int LDR_PIN = 13;
   int valLDR = map(analogRead(LDR_PIN), 32, 4063, 1, 255);
   Serial.println(valLDR);
   analogWrite(2, valLDR);
 
   int xxx[] = {0, 0, 0, 0};
-  int ledPins[] = {2, 0, 4, 16};
+  int ledPins[] = {2, 4, 5,12};
 
   for (int i = 1; i < 4; i++) {
     xxx[i] = 0;
@@ -67,7 +67,7 @@ void exam_2loop() {
 void exam_3setup() {
   const int trig = 21;
   const int echo = 22;
-  const int led1 = 0;
+  const int led1 = 4;
   const int led2 = 5;
   const int led3 = 18;
   const int bz = 2;
@@ -89,32 +89,32 @@ void exam_3loop() {
 
   const int distanceThreshold = 5;
 
-  int ledPins[] = {0, 5, 18};
+  int ledPins[] = {4, 5, 18};
   int bz = 2;
 
   if (distance <= distanceThreshold) {
-    digitalWrite(0, HIGH);
+    digitalWrite(4, HIGH);
     digitalWrite(5, LOW);
     digitalWrite(18, LOW);
     digitalWrite(bz, HIGH);
     delay(100);
     digitalWrite(bz, LOW);
   } else if (distance <= distanceThreshold + 5) {
-    digitalWrite(0, LOW);
+    digitalWrite(4, LOW);
     digitalWrite(5, HIGH);
     digitalWrite(18, LOW);
     digitalWrite(bz, HIGH);
     delay(300);
     digitalWrite(bz, LOW);
   } else if (distance <= distanceThreshold + 10) {
-    digitalWrite(0, LOW);
+    digitalWrite(4, LOW);
     digitalWrite(5, LOW);
     digitalWrite(18, HIGH);
     digitalWrite(bz, HIGH);
     delay(500);
     digitalWrite(bz, LOW);
   } else {
-    digitalWrite(0, LOW);
+    digitalWrite(4, LOW);
     digitalWrite(5, LOW);
     digitalWrite(18, LOW);
     digitalWrite(bz, LOW);
@@ -159,7 +159,7 @@ void exam_4loop() {
 void exam_5setup() {
   const int trig = 23;
   const int echo = 22;
-  LiquidCrystal lcd_1(0, 4, 5, 18, 16, 17);
+  LiquidCrystal lcd_1(2, 4, 5, 12, 13, 14);
   int bt = 35;
   int poten = 34;
   lcd_1.begin(16, 2);
@@ -193,7 +193,7 @@ void exam_5loop() {
   Serial.println(distance);
   Serial.println(a);
 
-  LiquidCrystal lcd_1(0, 4, 5, 18, 16, 17);
+  LiquidCrystal lcd_1(2, 4, 5, 12, 13, 14);
 
   lcd_1.setCursor(0, 0);
 
