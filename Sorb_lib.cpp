@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include <Servo.h>
+#include <ESP32Servo.h>
 #include <LiquidCrystal.h>
 
 Servo servo;  // Declare Servo globally
